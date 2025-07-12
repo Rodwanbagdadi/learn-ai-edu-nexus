@@ -26,12 +26,15 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
+  // Get the base name for GitHub Pages
+  const basename = import.meta.env.PROD ? '/learn-ai-edu-nexus' : '';
+  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
           <ScrollToTop />
           <div className="min-h-screen bg-background">
             <Navbar />

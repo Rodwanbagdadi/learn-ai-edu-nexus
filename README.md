@@ -4,7 +4,7 @@
 
 ## 🚀 Live Demo
 
-**Experience the platform live at:** [https://rodwanbagdadi.github.io/](https://rodwanbagdadi.github.io/)
+**Experience the platform live at:** [https://rodwanbagdadi.github.io/learn-ai-edu-nexus/](https://rodwanbagdadi.github.io/learn-ai-edu-nexus/)
 
 ## 🌟 Overview
 
