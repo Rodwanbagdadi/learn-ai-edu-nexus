@@ -145,26 +145,26 @@ All colors MUST be HSL.
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #06B6D4 100%);
+    background: linear-gradient(135deg, #374151 0%, #6B7280 50%, #9CA3AF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .gradient-bg-1 {
-    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 100%); /* Light Blue */
   }
   
   .gradient-bg-2 {
-    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    background: linear-gradient(135deg, #FDA4AF 0%, #FB7185 100%); /* Light Rose */
   }
   
   .gradient-bg-3 {
-    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    background: linear-gradient(135deg, #86EFAC 0%, #4ADE80 100%); /* Light Green */
   }
   
   .gradient-bg-4 {
-    background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+    background: linear-gradient(135deg, #FDE047 0%, #FACC15 100%); /* Light Yellow */
   }
   
   .hover-lift {
@@ -200,6 +200,22 @@ All colors MUST be HSL.
       linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+  
+  .notebook-lines {
+    background-image: 
+      linear-gradient(transparent 0px, transparent 23px, rgba(59, 130, 246, 0.15) 24px, rgba(59, 130, 246, 0.15) 25px, transparent 26px),
+      linear-gradient(90deg, rgba(75, 85, 99, 0.3) 0px, rgba(75, 85, 99, 0.3) 1px, transparent 2px);
+    background-size: 100% 25px, 80px 100%;
+    background-position: 0 0, 60px 0;
+  }
+  
+  .notebook-paper {
+    background-color: #fefefe;
+    background-image: 
+      linear-gradient(transparent 0px, transparent 23px, rgba(59, 130, 246, 0.12) 24px, rgba(59, 130, 246, 0.12) 25px, transparent 26px),
+      linear-gradient(90deg, rgba(75, 85, 99, 0.25) 59px, rgba(75, 85, 99, 0.25) 61px, transparent 62px);
+    background-size: 100% 25px, 100% 100%;
   }
   
   .professional-shadow {

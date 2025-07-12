@@ -12,9 +12,9 @@ const Teaching = () => {
   const [quizAnswers, setQuizAnswers] = useState<{ [key: number]: string }>({});
 
   const languages = {
-    en: { name: "English", flag: "EN", color: "bg-blue-500" },
-    ar: { name: "العربية", flag: "AR", color: "bg-emerald-500" },
-    de: { name: "Deutsch", flag: "DE", color: "bg-purple-500" }
+    en: { name: "English", flag: "EN", color: "bg-blue-300" },
+    ar: { name: "العربية", flag: "AR", color: "bg-green-300" },
+    de: { name: "Deutsch", flag: "DE", color: "bg-rose-300" }
   };
 
   const personalizedContent = [
@@ -48,18 +48,21 @@ const Teaching = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
+    <div className="min-h-screen notebook-paper relative overflow-hidden">
+      {/* Subtle overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20"></div>
+      
+      {/* Very subtle background elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/3 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-400/3 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
       
       <div className="relative max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="flex flex-col gap-6 mb-12">
           <div className="animate-slide-up pb-4">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-6">
-              <Brain className="h-4 w-4 text-blue-600 mr-2" />
-              <span className="text-blue-700 font-medium text-sm">AI-Powered Learning Hub</span>
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6">
+              <Brain className="h-4 w-4 text-gray-600 mr-2" />
+              <span className="text-gray-700 font-medium text-sm">AI-Powered Learning Hub</span>
             </div>
             <div className="pb-8">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 text-shadow font-display leading-normal">
@@ -82,8 +85,8 @@ const Teaching = () => {
                 onClick={() => setSelectedLanguage(code)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-200 text-sm ${
                   selectedLanguage === code 
-                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg hover:scale-105" 
-                    : "border-2 hover:border-blue-300 hover:bg-blue-50"
+                    ? "bg-gray-800 text-white shadow-lg hover:scale-105" 
+                    : "border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50"
                 }`}
               >
                 <div className={`w-5 h-5 rounded-full ${lang.color} flex items-center justify-center text-white text-xs font-bold`}>
@@ -99,7 +102,7 @@ const Teaching = () => {
           <TabsList className="grid w-full grid-cols-3 bg-white/80 backdrop-blur-sm rounded-2xl p-3 shadow-lg border border-gray-200 h-auto">
             <TabsTrigger 
               value="dashboard" 
-              className="flex items-center justify-center gap-2 px-4 py-4 rounded-xl font-medium text-sm transition-all data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg min-h-[3rem]"
+              className="flex items-center justify-center gap-2 px-4 py-4 rounded-xl font-medium text-sm transition-all data-[state=active]:bg-gray-800 data-[state=active]:text-white data-[state=active]:shadow-lg min-h-[3rem]"
             >
               <Target className="h-4 w-4 shrink-0" />
               <span className="hidden sm:inline">Dashboard</span>
@@ -107,7 +110,7 @@ const Teaching = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="assessment" 
-              className="flex items-center justify-center gap-2 px-4 py-4 rounded-xl font-medium text-sm transition-all data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg min-h-[3rem]"
+              className="flex items-center justify-center gap-2 px-4 py-4 rounded-xl font-medium text-sm transition-all data-[state=active]:bg-gray-800 data-[state=active]:text-white data-[state=active]:shadow-lg min-h-[3rem]"
             >
               <Brain className="h-4 w-4 shrink-0" />
               <span className="hidden sm:inline">Assessment</span>
@@ -115,7 +118,7 @@ const Teaching = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="analytics" 
-              className="flex items-center justify-center gap-2 px-4 py-4 rounded-xl font-medium text-sm transition-all data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white data-[state=active]:shadow-lg min-h-[3rem]"
+              className="flex items-center justify-center gap-2 px-4 py-4 rounded-xl font-medium text-sm transition-all data-[state=active]:bg-gray-800 data-[state=active]:text-white data-[state=active]:shadow-lg min-h-[3rem]"
             >
               <TrendingUp className="h-4 w-4 shrink-0" />
               <span className="hidden sm:inline">Analytics</span>
@@ -128,10 +131,10 @@ const Teaching = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
               {personalizedContent.map((subject, index) => {
                 const gradients = [
-                  'from-blue-500 to-cyan-500',
-                  'from-purple-500 to-pink-500',
-                  'from-emerald-500 to-teal-500',
-                  'from-orange-500 to-red-500'
+                  'from-blue-300 to-blue-400',
+                  'from-rose-300 to-rose-400',
+                  'from-green-300 to-green-400',
+                  'from-yellow-300 to-yellow-400'
                 ];
                 return (
                   <Card key={index} className="group relative overflow-hidden bg-white/90 backdrop-blur-sm border-0 shadow-xl hover-lift card-glow min-h-fit">
@@ -179,7 +182,7 @@ const Teaching = () => {
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 hover-lift">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-blue-100 rounded-xl shrink-0">
-                    <BookOpen className="h-5 w-5 text-blue-600" />
+                    <BookOpen className="h-5 w-5 text-blue-400" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900">Study Resources</h3>
                 </div>
@@ -191,26 +194,26 @@ const Teaching = () => {
               
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 hover-lift">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-purple-100 rounded-xl shrink-0">
-                    <Users className="h-5 w-5 text-purple-600" />
+                  <div className="p-2 bg-rose-100 rounded-xl shrink-0">
+                    <Users className="h-5 w-5 text-rose-400" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900">Study Groups</h3>
                 </div>
                 <p className="text-gray-600 mb-4 text-sm">Join collaborative learning sessions with peers</p>
-                <Button variant="outline" className="w-full border-purple-200 hover:bg-purple-50 text-sm">
+                <Button variant="outline" className="w-full border-rose-200 hover:bg-rose-50 text-sm">
                   Join Group
                 </Button>
               </div>
               
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 hover-lift">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-emerald-100 rounded-xl shrink-0">
-                    <Target className="h-5 w-5 text-emerald-600" />
+                  <div className="p-2 bg-green-100 rounded-xl shrink-0">
+                    <Target className="h-5 w-5 text-green-400" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900">Set Goals</h3>
                 </div>
                 <p className="text-gray-600 mb-4 text-sm">Define and track your learning objectives</p>
-                <Button variant="outline" className="w-full border-emerald-200 hover:bg-emerald-50 text-sm">
+                <Button variant="outline" className="w-full border-green-200 hover:bg-green-50 text-sm">
                   Set Goals
                 </Button>
               </div>
@@ -268,7 +271,7 @@ const Teaching = () => {
                   </div>
                 ) : (
                   <div className="text-center space-y-4">
-                    <CheckCircle className="h-16 w-16 text-emerald-500 mx-auto" />
+                    <CheckCircle className="h-16 w-16 text-green-400 mx-auto" />
                     <h3 className="text-2xl font-semibold">Quiz Completed!</h3>
                     <p className="text-muted-foreground">AI is analyzing your responses...</p>
                     <div className="p-4 bg-muted rounded-lg">
@@ -334,14 +337,14 @@ const Teaching = () => {
                       <Target className="h-5 w-5 text-muted-foreground" />
                       <div>
                         <p className="font-medium">Goals Completed</p>
-                        <p className="text-2xl font-bold text-emerald-500">8/10</p>
+                        <p className="text-2xl font-bold text-green-400">8/10</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
                       <TrendingUp className="h-5 w-5 text-muted-foreground" />
                       <div>
                         <p className="font-medium">Performance Trend</p>
-                        <p className="text-2xl font-bold text-emerald-500">+12%</p>
+                        <p className="text-2xl font-bold text-green-400">+12%</p>
                       </div>
                     </div>
                   </div>

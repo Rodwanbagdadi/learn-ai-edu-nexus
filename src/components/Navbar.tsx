@@ -29,15 +29,15 @@ const Navbar = () => {
             to={item.href}
             className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
               active
-                ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                : "text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                ? "bg-gray-800 text-white shadow-lg"
+                : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
             }`}
             onClick={() => setIsOpen(false)}
           >
             <div className={`p-1 rounded-lg transition-colors ${
-              active ? "bg-white/20" : "group-hover:bg-blue-100"
+              active ? "bg-white/20" : "group-hover:bg-gray-200"
             }`}>
-              <Icon className={`h-4 w-4 ${active ? "text-white" : "group-hover:text-blue-600"}`} />
+              <Icon className={`h-4 w-4 ${active ? "text-white" : "group-hover:text-gray-800"}`} />
             </div>
             <span className="font-semibold">{item.name}</span>
             {active && (
@@ -55,12 +55,12 @@ const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-lg group-hover:scale-105 transition-transform">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
+              <div className="relative p-2 bg-gray-800 rounded-xl shadow-lg group-hover:scale-105 transition-transform">
+                <div className="absolute inset-0 bg-gray-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
                 <GraduationCap className="relative h-8 w-8 text-white" />
               </div>
               <div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-display">
+                <span className="text-2xl font-bold text-gray-800 font-display">
                   EduAI Nexus
                 </span>
                 <div className="text-xs text-gray-500 font-medium tracking-wide">Intelligence in Education</div>
@@ -84,11 +84,11 @@ const Navbar = () => {
               <SheetContent side="right" className="w-80 bg-white">
                 <div className="flex flex-col gap-6 mt-8">
                   <div className="flex items-center gap-3 px-4">
-                    <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl">
+                    <div className="p-2 bg-gray-800 rounded-xl">
                       <GraduationCap className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      <span className="text-xl font-bold text-gray-800">
                         EduAI Nexus
                       </span>
                       <div className="text-xs text-gray-500 font-medium">Next-Gen Learning</div>

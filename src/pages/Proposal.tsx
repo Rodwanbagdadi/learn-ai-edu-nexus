@@ -185,7 +185,7 @@ const Proposal = () => {
                       <div key={index} className="p-4 border rounded-lg">
                         <div className="flex justify-between items-center mb-3">
                           <h4 className="font-semibold">{item.metric}</h4>
-                          <Badge variant="default" className="bg-emerald-500">
+                          <Badge variant="default" className="bg-green-400">
                             {item.saving} saved
                           </Badge>
                         </div>
@@ -194,8 +194,8 @@ const Proposal = () => {
                             <p className="text-red-700 dark:text-red-300 font-medium">Before</p>
                             <p>{item.before}</p>
                           </div>
-                          <div className="p-2 bg-emerald-50 dark:bg-emerald-950 rounded">
-                            <p className="text-emerald-700 dark:text-emerald-300 font-medium">After</p>
+                          <div className="p-2 bg-green-50 dark:bg-green-950 rounded">
+                            <p className="text-green-600 dark:text-green-400 font-medium">After</p>
                             <p>{item.after}</p>
                           </div>
                         </div>
@@ -212,18 +212,18 @@ const Proposal = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    <div className="p-4 bg-emerald-50 dark:bg-emerald-950 rounded-lg">
-                      <h4 className="font-semibold text-emerald-700 dark:text-emerald-300 mb-2">Labor Cost Reduction</h4>
+                    <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
+                      <h4 className="font-semibold text-green-600 dark:text-green-400 mb-2">Labor Cost Reduction</h4>
                       <p className="text-2xl font-bold">$180,000</p>
                       <p className="text-sm text-muted-foreground">Reduced administrative overhead</p>
                     </div>
-                    <div className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                      <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">Efficiency Gains</h4>
+                    <div className="p-4 bg-gray-50 dark:bg-gray-950 rounded-lg">
+                      <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Efficiency Gains</h4>
                       <p className="text-2xl font-bold">$95,000</p>
                       <p className="text-sm text-muted-foreground">Faster processes and automation</p>
                     </div>
-                    <div className="p-4 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                      <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-2">Error Reduction</h4>
+                    <div className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg">
+                      <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Error Reduction</h4>
                       <p className="text-2xl font-bold">$45,000</p>
                       <p className="text-sm text-muted-foreground">Reduced mistakes and rework</p>
                     </div>
@@ -254,7 +254,7 @@ const Proposal = () => {
                           <h4 className="font-semibold">{year.year}</h4>
                           <div className="flex items-center gap-2">
                             {year.roi > 0 ? (
-                              <ArrowUp className="h-4 w-4 text-emerald-500" />
+                              <ArrowUp className="h-4 w-4 text-green-400" />
                             ) : (
                               <ArrowDown className="h-4 w-4 text-red-500" />
                             )}
@@ -270,7 +270,7 @@ const Proposal = () => {
                           </div>
                           <div>
                             <p className="text-muted-foreground">Savings</p>
-                            <p className="font-bold text-emerald-500">${year.savings.toLocaleString()}</p>
+                            <p className="font-bold text-green-400">${year.savings.toLocaleString()}</p>
                           </div>
                         </div>
                       </div>
@@ -297,15 +297,15 @@ const Proposal = () => {
                       </div>
                       <div className="flex justify-between">
                         <span>Cumulative Savings (3 years)</span>
-                        <span className="font-bold text-emerald-500">$950,000</span>
+                        <span className="font-bold text-green-400">$950,000</span>
                       </div>
                       <div className="flex justify-between pt-2 border-t">
                         <span>Net Benefit (3 years)</span>
-                        <span className="font-bold text-emerald-500">$435,000</span>
+                        <span className="font-bold text-green-400">$435,000</span>
                       </div>
                     </div>
-                    <div className="p-4 bg-emerald-50 dark:bg-emerald-950 rounded-lg">
-                      <h4 className="font-semibold text-emerald-700 dark:text-emerald-300 mb-2">
+                    <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
+                      <h4 className="font-semibold text-green-600 dark:text-green-400 mb-2">
                         Key Success Factors
                       </h4>
                       <ul className="text-sm space-y-1">
@@ -337,8 +337,8 @@ const Proposal = () => {
                         <p className="font-medium text-red-700 dark:text-red-300">Cost Overruns</p>
                         <p className="text-sm">Additional requirements or customizations</p>
                       </div>
-                      <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                        <p className="font-medium text-blue-700 dark:text-blue-300">Technology Changes</p>
+                      <div className="p-3 bg-gray-50 dark:bg-gray-950 rounded-lg">
+                        <p className="font-medium text-gray-700 dark:text-gray-300">Technology Changes</p>
                         <p className="text-sm">Rapid evolution of AI landscape</p>
                       </div>
                     </div>
@@ -346,8 +346,8 @@ const Proposal = () => {
                   <div>
                     <h4 className="font-semibold mb-3">Mitigation Strategies</h4>
                     <div className="space-y-2">
-                      <div className="p-3 bg-emerald-50 dark:bg-emerald-950 rounded-lg">
-                        <p className="font-medium text-emerald-700 dark:text-emerald-300">Phased Implementation</p>
+                      <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg">
+                        <p className="font-medium text-green-600 dark:text-green-400">Phased Implementation</p>
                         <p className="text-sm">Gradual rollout with regular checkpoints</p>
                       </div>
                       <div className="p-3 bg-emerald-50 dark:bg-emerald-950 rounded-lg">
@@ -483,7 +483,7 @@ const Proposal = () => {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-3 text-blue-600">Enterprise Advantages</h4>
+                    <h4 className="font-semibold mb-3 text-gray-700">Enterprise Advantages</h4>
                     <ul className="space-y-2 text-sm">
                       <li>• Professional support and SLAs</li>
                       <li>• Pre-built integrations and APIs</li>

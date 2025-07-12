@@ -11,28 +11,28 @@ const Index = () => {
       title: "AI-Powered Teaching",
       description: "Personalized learning experiences with intelligent content recommendations and adaptive assessments.",
       href: "/teaching",
-      color: "text-blue-500"
+      color: "text-gray-600"
     },
     {
       icon: BarChart3,
       title: "Smart Governance",
       description: "Data-driven insights for educational leadership with predictive analytics and performance tracking.",
       href: "/governance",
-      color: "text-emerald-500"
+      color: "text-gray-700"
     },
     {
       icon: Settings,
       title: "Automated Administration",
       description: "Streamlined school management with AI chatbots, smart scheduling, and attendance tracking.",
       href: "/administration",
-      color: "text-purple-500"
+      color: "text-gray-600"
     },
     {
       icon: FileText,
       title: "Implementation Proposal",
       description: "Comprehensive cost analysis, ROI projections, and technology roadmap for AI integration.",
       href: "/proposal",
-      color: "text-orange-500"
+      color: "text-gray-700"
     }
   ];
 
@@ -52,8 +52,8 @@ const Index = () => {
       
       {/* Floating Background Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full animate-float blur-xl"></div>
-      <div className="absolute top-40 right-20 w-96 h-96 bg-purple-400/10 rounded-full animate-float blur-xl" style={{animationDelay: '-2s'}}></div>
-      <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-emerald-400/10 rounded-full animate-float blur-xl" style={{animationDelay: '-4s'}}></div>
+      <div className="absolute top-40 right-20 w-96 h-96 bg-rose-300/10 rounded-full animate-float blur-xl" style={{animationDelay: '-2s'}}></div>
+      <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-green-300/10 rounded-full animate-float blur-xl" style={{animationDelay: '-4s'}}></div>
       
       {/* Hero Section */}
       <section className="relative py-24 px-6 text-center">
@@ -77,7 +77,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button size="lg" className="px-8 py-4 text-lg font-semibold gradient-bg-1 hover:scale-105 transition-transform shadow-lg" asChild>
+            <Button size="lg" className="px-8 py-4 text-lg font-semibold bg-gray-800 hover:bg-gray-700 text-white hover:scale-105 transition-transform shadow-lg" asChild>
               <Link to="/teaching" className="flex items-center gap-3">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -85,7 +85,7 @@ const Index = () => {
                 Start Learning Journey
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg font-semibold border-2 hover:bg-gray-50 hover:scale-105 transition-transform" asChild>
+            <Button size="lg" variant="outline" className="px-8 py-4 text-lg font-semibold border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 hover:scale-105 transition-transform" asChild>
               <Link to="/proposal" className="flex items-center gap-3">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0v12h8V4H6z" clipRule="evenodd" />
@@ -98,15 +98,15 @@ const Index = () => {
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 hover-lift">
-              <div className="text-3xl font-bold text-blue-600 mb-2">95%</div>
+              <div className="text-3xl font-bold text-gray-700 mb-2">95%</div>
               <div className="text-gray-600">Student Engagement Increase</div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 hover-lift">
-              <div className="text-3xl font-bold text-emerald-600 mb-2">60%</div>
+              <div className="text-3xl font-bold text-gray-700 mb-2">60%</div>
               <div className="text-gray-600">Administrative Time Saved</div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 hover-lift">
-              <div className="text-3xl font-bold text-purple-600 mb-2">40%</div>
+              <div className="text-3xl font-bold text-gray-700 mb-2">40%</div>
               <div className="text-gray-600">Learning Outcome Improvement</div>
             </div>
           </div>
@@ -144,7 +144,7 @@ const Index = () => {
                           <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                             {feature.title}
                           </CardTitle>
-                          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2"></div>
+                          <div className="w-12 h-1 bg-gradient-to-r from-blue-300 to-green-300 rounded-full mt-2"></div>
                         </div>
                       </div>
                     </CardHeader>
@@ -183,12 +183,12 @@ const Index = () => {
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               const colors = [
-                'text-blue-500 bg-blue-100',
-                'text-emerald-500 bg-emerald-100', 
-                'text-purple-500 bg-purple-100',
-                'text-orange-500 bg-orange-100',
-                'text-pink-500 bg-pink-100',
-                'text-cyan-500 bg-cyan-100'
+                'text-blue-400 bg-blue-100',
+                'text-rose-400 bg-rose-100', 
+                'text-green-400 bg-green-100',
+                'text-yellow-400 bg-yellow-100',
+                'text-purple-400 bg-purple-100',
+                'text-teal-400 bg-teal-100'
               ];
               return (
                 <div key={index} className="group text-center p-8 bg-white rounded-2xl shadow-lg hover-lift border border-gray-100">
@@ -197,7 +197,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                  <div className="mt-4 w-8 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="mt-4 w-8 h-1 bg-gradient-to-r from-blue-300 to-green-300 rounded-full mx-auto opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
               );
             })}
@@ -223,33 +223,33 @@ const Index = () => {
                 name: "Microsoft Azure", 
                 type: "Cloud Infrastructure", 
                 icon: <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M22.379 23.343a1.62 1.62 0 0 1-1.536.002l-8.051-4.647a1.62 1.62 0 0 1-.812-1.405V9.707a1.62 1.62 0 0 1 .812-1.405l8.051-4.647a1.62 1.62 0 0 1 1.618 0l8.051 4.647a1.62 1.62 0 0 1 .812 1.405v7.586a1.62 1.62 0 0 1-.812 1.405l-8.051 4.647z"/></svg>, 
-                color: "blue" 
+                color: "gray" 
               },
               { 
                 name: "Google AI", 
                 type: "Machine Learning", 
                 icon: <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>, 
-                color: "emerald" 
+                color: "gray" 
               },
               { 
                 name: "TensorFlow", 
                 type: "Deep Learning", 
                 icon: <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.153-1.747zm21.416 5.716L12.46 24V0l4.095 2.378v14.019l6.153 1.747z"/></svg>, 
-                color: "purple" 
+                color: "gray" 
               },
               { 
                 name: "Hugging Face", 
                 type: "AI Models", 
                 icon: <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 7.568l-2.12 2.12a1 1 0 11-1.415-1.414l2.12-2.12a1 1 0 111.415 1.414z"/></svg>, 
-                color: "orange" 
+                color: "gray" 
               }
             ].map((tech, index) => (
               <div key={index} className="group p-8 bg-gray-50 rounded-2xl hover:bg-white transition-colors shadow-md hover:shadow-xl border border-gray-200">
                 <div className="text-center">
-                  <div className={`text-${tech.color}-600 mb-4 group-hover:scale-110 transition-transform flex justify-center`}>{tech.icon}</div>
+                  <div className={`text-gray-500 mb-4 group-hover:scale-110 transition-transform flex justify-center group-hover:text-gray-600`}>{tech.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{tech.name}</h3>
                   <p className="text-gray-600 text-sm font-medium">{tech.type}</p>
-                  <div className={`mt-4 w-12 h-1 bg-${tech.color}-500 rounded-full mx-auto opacity-0 group-hover:opacity-100 transition-opacity`}></div>
+                  <div className={`mt-4 w-12 h-1 bg-gray-400 rounded-full mx-auto opacity-0 group-hover:opacity-100 transition-opacity`}></div>
                 </div>
               </div>
             ))}
@@ -269,7 +269,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 px-6 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 overflow-hidden">
+      <section className="relative py-24 px-6 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute top-0 left-0 w-full h-full pattern-grid opacity-10"></div>
@@ -286,7 +286,7 @@ const Index = () => {
             Transform Your Institution Today
           </h2>
           
-          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-4xl mx-auto leading-relaxed">
             Join thousands of educators already using AI to create more engaging, 
             efficient, and effective learning environments.
           </p>
@@ -294,7 +294,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <Button 
               size="lg" 
-              className="w-full sm:w-auto px-8 py-4 text-lg font-semibold bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 transition-transform shadow-xl" 
+              className="w-full sm:w-auto px-8 py-4 text-lg font-semibold bg-white text-gray-800 hover:bg-gray-100 hover:scale-105 transition-transform shadow-xl" 
               asChild
             >
               <Link to="/proposal" className="flex items-center justify-center gap-3">

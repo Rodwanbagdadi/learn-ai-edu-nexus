@@ -72,7 +72,7 @@ const Administration = () => {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case "present":
-        return <CheckCircle className="h-4 w-4 text-emerald-500" />;
+        return <CheckCircle className="h-4 w-4 text-green-400" />;
       case "late":
         return <Clock className="h-4 w-4 text-yellow-500" />;
       case "absent":
@@ -96,8 +96,15 @@ const Administration = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen notebook-paper relative overflow-hidden">
+      {/* Subtle overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/20 via-transparent to-gray-100/20"></div>
+      
+      {/* Very subtle background elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gray-400/3 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gray-500/3 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
+      
+      <div className="relative max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-2">AI-Powered Administration</h1>
@@ -210,7 +217,7 @@ const Administration = () => {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm">Resolution Rate</span>
-                        <span className="font-bold text-emerald-500">92%</span>
+                        <span className="font-bold text-green-400">92%</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-sm">Average Response Time</span>
@@ -271,8 +278,8 @@ const Administration = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      <div className="p-3 bg-emerald-50 dark:bg-emerald-950 rounded-lg">
-                        <h4 className="font-semibold text-emerald-700 dark:text-emerald-300 mb-1">
+                      <div className="p-3 bg-green-50 dark:bg-green-950 rounded-lg">
+                        <h4 className="font-semibold text-green-600 dark:text-green-400 mb-1">
                           Optimizations Applied
                         </h4>
                         <ul className="text-sm space-y-1">
@@ -369,13 +376,13 @@ const Administration = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div className="text-center">
-                        <p className="text-3xl font-bold text-emerald-500">83%</p>
+                        <p className="text-3xl font-bold text-green-400">83%</p>
                         <p className="text-muted-foreground">Present Today</p>
                       </div>
                       <div className="space-y-2">
                         <div className="flex justify-between">
                           <span className="text-sm">Present</span>
-                          <span className="font-bold text-emerald-500">5 students</span>
+                          <span className="font-bold text-green-400">5 students</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-sm">Late</span>
@@ -396,14 +403,14 @@ const Administration = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      <div className="p-3 bg-blue-50 dark:bg-blue-950 rounded-lg">
-                        <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-1">
+                      <div className="p-3 bg-gray-50 dark:bg-gray-950 rounded-lg">
+                        <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">
                           Computer Vision
                         </h4>
                         <p className="text-sm">Facial recognition and behavior analysis for automated attendance</p>
                       </div>
-                      <div className="p-3 bg-purple-50 dark:bg-purple-950 rounded-lg">
-                        <h4 className="font-semibold text-purple-700 dark:text-purple-300 mb-1">
+                      <div className="p-3 bg-gray-100 dark:bg-gray-900 rounded-lg">
+                        <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">
                           Smart Analytics
                         </h4>
                         <p className="text-sm">Predictive patterns for early intervention and engagement tracking</p>
