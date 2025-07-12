@@ -50,11 +50,11 @@ const Teaching = () => {
   return (
     <div className="min-h-screen notebook-paper relative overflow-hidden">
       {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/20 via-transparent to-gray-100/20"></div>
       
       {/* Very subtle background elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400/3 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-400/3 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gray-400/5 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gray-500/5 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
       
       <div className="relative max-w-7xl mx-auto p-6">
         {/* Header */}

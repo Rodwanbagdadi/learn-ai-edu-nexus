@@ -27,5 +27,14 @@ export default defineConfig(({ mode }) => ({
     assetsDir: 'assets',
     // Ensure compatibility with GitHub Pages
     target: 'es2015',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
+  // Define environment variables
+  define: {
+    'import.meta.env.VITE_BASE_URL': JSON.stringify(mode === 'production' ? '/learn-ai-edu-nexus/' : '/'),
   },
 }));
