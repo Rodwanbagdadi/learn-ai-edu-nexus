@@ -2,6 +2,10 @@
 
 > A sophisticated, AI-powered educational platform designed for modern institutions, featuring advanced administration tools, personalized learning experiences, and comprehensive analytics.
 
+## 🚀 Live Demo
+
+**Experience the platform live at:** [https://rodwanbagdadi.github.io/learn-ai-edu-nexus/](https://rodwanbagdadi.github.io/learn-ai-edu-nexus/)
+
 ## 🌟 Overview
 
 AI Educational Nexus is a cutting-edge educational technology platform that transforms traditional learning environments through artificial intelligence integration. Built with a focus on professional aesthetics, user experience, and educational effectiveness.
