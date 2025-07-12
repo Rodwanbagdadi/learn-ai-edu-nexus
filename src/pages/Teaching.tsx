@@ -17,12 +17,93 @@ const Teaching = () => {
     de: { name: "Deutsch", flag: "DE", color: "bg-rose-300" }
   };
 
-  const personalizedContent = [
-    { subject: "Mathematics", progress: 85, recommendation: "Focus on Calculus II", level: "Advanced" },
-    { subject: "Physics", progress: 72, recommendation: "Review Thermodynamics", level: "Intermediate" },
-    { subject: "Chemistry", progress: 94, recommendation: "Explore Organic Chemistry", level: "Expert" },
-    { subject: "Biology", progress: 68, recommendation: "Practice Cell Biology", level: "Intermediate" }
-  ];
+  const localizedContent = {
+    en: {
+      subjects: [
+        { subject: "Mathematics", progress: 85, recommendation: "Focus on Calculus II", level: "Advanced" },
+        { subject: "Physics", progress: 72, recommendation: "Review Thermodynamics", level: "Intermediate" },
+        { subject: "Chemistry", progress: 94, recommendation: "Explore Organic Chemistry", level: "Expert" },
+        { subject: "Biology", progress: 68, recommendation: "Practice Cell Biology", level: "Intermediate" }
+      ],
+      title: "Personalized Teaching Experience",
+      subtitle: "Harness the power of artificial intelligence to create adaptive, engaging, and data-driven learning experiences for every student.",
+      aiPowered: "AI-Powered Learning Hub",
+      continueButton: "Continue Learning",
+      studyResources: {
+        title: "Study Resources",
+        description: "Access curated learning materials tailored to your progress",
+        button: "Browse Resources"
+      },
+      studyGroups: {
+        title: "Study Groups", 
+        description: "Join collaborative learning sessions with peers",
+        button: "Join Group"
+      },
+      setGoals: {
+        title: "Set Goals",
+        description: "Define and track your learning objectives", 
+        button: "Set Goals"
+      }
+    },
+    ar: {
+      subjects: [
+        { subject: "الرياضيات", progress: 85, recommendation: "التركيز على التفاضل والتكامل II", level: "متقدم" },
+        { subject: "الفيزياء", progress: 72, recommendation: "مراجعة الديناميكا الحرارية", level: "متوسط" },
+        { subject: "الكيمياء", progress: 94, recommendation: "استكشاف الكيمياء العضوية", level: "خبير" },
+        { subject: "الأحياء", progress: 68, recommendation: "ممارسة بيولوجيا الخلية", level: "متوسط" }
+      ],
+      title: "تجربة تعليمية شخصية",
+      subtitle: "استخدم قوة الذكاء الاصطناعي لإنشاء تجارب تعلم تكيفية وجذابة ومدفوعة بالبيانات لكل طالب.",
+      aiPowered: "مركز التعلم المدعوم بالذكاء الاصطناعي",
+      continueButton: "متابعة التعلم",
+      studyResources: {
+        title: "مصادر الدراسة",
+        description: "الوصول إلى المواد التعليمية المنسقة وفقاً لتقدمك",
+        button: "تصفح المصادر"
+      },
+      studyGroups: {
+        title: "مجموعات الدراسة",
+        description: "انضم إلى جلسات التعلم التعاونية مع الأقران",
+        button: "انضم للمجموعة"
+      },
+      setGoals: {
+        title: "تحديد الأهداف",
+        description: "حدد وتتبع أهدافك التعليمية",
+        button: "تحديد الأهداف"
+      }
+    },
+    de: {
+      subjects: [
+        { subject: "Mathematik", progress: 85, recommendation: "Fokus auf Analysis II", level: "Fortgeschritten" },
+        { subject: "Physik", progress: 72, recommendation: "Thermodynamik wiederholen", level: "Mittelstufe" },
+        { subject: "Chemie", progress: 94, recommendation: "Organische Chemie erkunden", level: "Experte" },
+        { subject: "Biologie", progress: 68, recommendation: "Zellbiologie üben", level: "Mittelstufe" }
+      ],
+      title: "Personalisierte Lehrerfahrung",
+      subtitle: "Nutzen Sie die Kraft der künstlichen Intelligenz, um adaptive, ansprechende und datengesteuerte Lernerfahrungen für jeden Schüler zu schaffen.",
+      aiPowered: "KI-gestütztes Lernzentrum",
+      continueButton: "Lernen fortsetzen",
+      studyResources: {
+        title: "Lernressourcen",
+        description: "Zugang zu kuratierten Lernmaterialien, die auf Ihren Fortschritt zugeschnitten sind",
+        button: "Ressourcen durchsuchen"
+      },
+      studyGroups: {
+        title: "Lerngruppen",
+        description: "Nehmen Sie an kollaborativen Lernsitzungen mit Gleichgesinnten teil",
+        button: "Gruppe beitreten"
+      },
+      setGoals: {
+        title: "Ziele setzen",
+        description: "Definieren und verfolgen Sie Ihre Lernziele",
+        button: "Ziele setzen"
+      }
+    }
+  };
+
+  const currentContent = localizedContent[selectedLanguage as keyof typeof localizedContent];
+
+  const personalizedContent = currentContent.subjects;
 
   const quizQuestions = [
     {
@@ -62,17 +143,22 @@ const Teaching = () => {
           <div className="animate-slide-up pb-4">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6">
               <Brain className="h-4 w-4 text-gray-600 mr-2" />
-              <span className="text-gray-700 font-medium text-sm">AI-Powered Learning Hub</span>
+              <span className="text-gray-700 font-medium text-sm">{currentContent.aiPowered}</span>
             </div>
             <div className="pb-8">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 text-shadow font-display leading-normal">
-                Personalized
-                <span className="block gradient-text pb-2">Teaching Experience</span>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 text-shadow font-display leading-normal" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>
+                {selectedLanguage === 'ar' ? (
+                  <span className="block gradient-text pb-2">{currentContent.title}</span>
+                ) : (
+                  <>
+                    {currentContent.title.split(' ')[0]}
+                    <span className="block gradient-text pb-2">{currentContent.title.split(' ').slice(1).join(' ')}</span>
+                  </>
+                )}
               </h1>
             </div>
-            <p className="text-lg lg:text-xl text-gray-600 max-w-4xl leading-relaxed mb-8">
-              Harness the power of artificial intelligence to create adaptive, engaging, 
-              and data-driven learning experiences for every student.
+            <p className="text-lg lg:text-xl text-gray-600 max-w-4xl leading-relaxed mb-8" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>
+              {currentContent.subtitle}
             </p>
           </div>
           
@@ -168,7 +254,7 @@ const Teaching = () => {
                           <p className="text-sm text-gray-800 font-semibold">{subject.recommendation}</p>
                         </div>
                         <Button className={`w-full bg-gradient-to-r ${gradients[index]} hover:scale-105 transition-transform shadow-lg font-medium text-sm`}>
-                          Continue Learning
+                          {currentContent.continueButton}
                         </Button>
                       </div>
                     </CardContent>
@@ -184,11 +270,11 @@ const Teaching = () => {
                   <div className="p-2 bg-blue-100 rounded-xl shrink-0">
                     <BookOpen className="h-5 w-5 text-blue-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">Study Resources</h3>
+                  <h3 className="text-lg font-bold text-gray-900" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>{currentContent.studyResources.title}</h3>
                 </div>
-                <p className="text-gray-600 mb-4 text-sm">Access curated learning materials tailored to your progress</p>
+                <p className="text-gray-600 mb-4 text-sm" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>{currentContent.studyResources.description}</p>
                 <Button variant="outline" className="w-full border-blue-200 hover:bg-blue-50 text-sm">
-                  Browse Resources
+                  {currentContent.studyResources.button}
                 </Button>
               </div>
               
@@ -197,11 +283,11 @@ const Teaching = () => {
                   <div className="p-2 bg-rose-100 rounded-xl shrink-0">
                     <Users className="h-5 w-5 text-rose-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">Study Groups</h3>
+                  <h3 className="text-lg font-bold text-gray-900" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>{currentContent.studyGroups.title}</h3>
                 </div>
-                <p className="text-gray-600 mb-4 text-sm">Join collaborative learning sessions with peers</p>
+                <p className="text-gray-600 mb-4 text-sm" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>{currentContent.studyGroups.description}</p>
                 <Button variant="outline" className="w-full border-rose-200 hover:bg-rose-50 text-sm">
-                  Join Group
+                  {currentContent.studyGroups.button}
                 </Button>
               </div>
               
@@ -210,11 +296,11 @@ const Teaching = () => {
                   <div className="p-2 bg-green-100 rounded-xl shrink-0">
                     <Target className="h-5 w-5 text-green-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900">Set Goals</h3>
+                  <h3 className="text-lg font-bold text-gray-900" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>{currentContent.setGoals.title}</h3>
                 </div>
-                <p className="text-gray-600 mb-4 text-sm">Define and track your learning objectives</p>
+                <p className="text-gray-600 mb-4 text-sm" style={{ direction: selectedLanguage === 'ar' ? 'rtl' : 'ltr' }}>{currentContent.setGoals.description}</p>
                 <Button variant="outline" className="w-full border-green-200 hover:bg-green-50 text-sm">
-                  Set Goals
+                  {currentContent.setGoals.button}
                 </Button>
               </div>
             </div>
