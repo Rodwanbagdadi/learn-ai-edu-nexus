@@ -3,16 +3,28 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
-import Index from "./pages/Index";
-import Teaching from "./pages/Teaching";
-import Governance from "./pages/Governance";
-import Administration from "./pages/Administration";
-import Proposal from "./pages/Proposal";
-import NotFound from "./pages/NotFound";
+
+// Lazy load pages for better performance
+const Index = lazy(() => import("./pages/Index"));
+const Teaching = lazy(() => import("./pages/Teaching"));
+const Governance = lazy(() => import("./pages/Governance"));
+const Administration = lazy(() => import("./pages/Administration"));
+const Proposal = lazy(() => import("./pages/Proposal"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
+
+// Loading component for lazy-loaded pages
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="text-center">
+      <div className="w-8 h-8 border-4 border-blue-300 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-gray-600 font-medium">Loading...</p>
+    </div>
+  </div>
+);
 
 // Component to handle scroll to top on route change
 const ScrollToTop = () => {
@@ -38,15 +50,17 @@ const App = () => {
           <ScrollToTop />
           <div className="min-h-screen bg-background">
             <Navbar />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/teaching" element={<Teaching />} />
-              <Route path="/governance" element={<Governance />} />
-              <Route path="/administration" element={<Administration />} />
-              <Route path="/proposal" element={<Proposal />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/teaching" element={<Teaching />} />
+                <Route path="/governance" element={<Governance />} />
+                <Route path="/administration" element={<Administration />} />
+                <Route path="/proposal" element={<Proposal />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </div>
         </BrowserRouter>
       </TooltipProvider>
