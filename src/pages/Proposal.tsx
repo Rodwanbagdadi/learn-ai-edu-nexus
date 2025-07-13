@@ -6,11 +6,11 @@ import { DollarSign, TrendingUp, Server, Users, CheckCircle, Star, ArrowUp, Arro
 
 const Proposal = () => {
   const costBreakdown = [
-    { category: "Software Licenses", year1: 45000, year2: 48000, year3: 52000, description: "AI platforms, LMS, analytics tools" },
-    { category: "Infrastructure", year1: 85000, year2: 25000, year3: 30000, description: "Servers, cloud storage, networking" },
-    { category: "Training & Development", year1: 35000, year2: 20000, year3: 15000, description: "Staff training, certifications" },
-    { category: "Implementation Services", year1: 60000, year2: 15000, year3: 10000, description: "Consulting, setup, integration" },
-    { category: "Maintenance & Support", year1: 20000, year2: 25000, year3: 30000, description: "Technical support, updates" }
+    { category: "Software Licenses", year1: 2800, year2: 3200, year3: 3500, description: "AI platforms, LMS, analytics tools (educational discounts)" },
+    { category: "Infrastructure", year1: 4200, year2: 1400, year3: 1600, description: "Cloud hosting, basic server setup, networking" },
+    { category: "Training & Development", year1: 2100, year2: 1200, year3: 900, description: "Staff training, online certifications" },
+    { category: "Implementation Services", year1: 3500, year2: 800, year3: 500, description: "Setup assistance, basic integration" },
+    { category: "Maintenance & Support", year1: 1400, year2: 1800, year3: 2100, description: "Technical support, updates, helpdesk" }
   ];
 
   const savingsComparison = [
@@ -22,16 +22,16 @@ const Proposal = () => {
   ];
 
   const techStack = [
-    { name: "Microsoft Azure", category: "Cloud Platform", cost: "Enterprise", features: ["AI Services", "Analytics", "Security"] },
-    { name: "Google AI Platform", category: "Machine Learning", cost: "Pay-per-use", features: ["Natural Language", "Vision AI", "AutoML"] },
-    { name: "TensorFlow", category: "Open Source", cost: "Free", features: ["Deep Learning", "Model Training", "Deployment"] },
-    { name: "Hugging Face", category: "AI Models", cost: "Freemium", features: ["Pre-trained Models", "Fine-tuning", "API Access"] }
+    { name: "Microsoft Azure Education", category: "Cloud Platform", cost: "Educational Pricing", features: ["AI Services", "Analytics", "Security"] },
+    { name: "Google Workspace for Education", category: "Productivity Suite", cost: "Free/Low-cost", features: ["Classroom", "Drive", "Meet"] },
+    { name: "Open Source LMS", category: "Learning Management", cost: "Free", features: ["Moodle", "Canvas", "Customizable"] },
+    { name: "Educational AI Tools", category: "AI Integration", cost: "Freemium", features: ["ChatGPT for Education", "Educational APIs", "Student Analytics"] }
   ];
 
   const roiData = [
-    { year: "Year 1", investment: 245000, savings: 180000, roi: -26.5 },
-    { year: "Year 2", investment: 133000, savings: 320000, roi: 140.6 },
-    { year: "Year 3", investment: 137000, savings: 450000, roi: 228.5 }
+    { year: "Year 1", investment: 14000, savings: 8500, roi: -39.3 },
+    { year: "Year 2", investment: 7400, savings: 15000, roi: 102.7 },
+    { year: "Year 3", investment: 8500, savings: 20000, roi: 135.3 }
   ];
 
   const getTotalCost = (year: keyof typeof costBreakdown[0]) => {
@@ -44,7 +44,38 @@ const Proposal = () => {
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="text-4xl font-bold text-foreground mb-2">AI Integration Proposal</h1>
-          <p className="text-muted-foreground text-lg">Comprehensive cost analysis and ROI projections for educational AI implementation</p>
+          <p className="text-muted-foreground text-lg">Affordable AI implementation for schools - Comprehensive cost analysis in JOD with realistic pricing for educational institutions</p>
+        </div>
+
+        {/* Affordability Highlight */}
+        <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Card className="border-green-200 bg-green-50 dark:bg-green-950">
+            <CardContent className="pt-6">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600 dark:text-green-400">JD 14,000</p>
+                <p className="text-sm text-green-700 dark:text-green-300">First Year Investment</p>
+                <p className="text-xs text-muted-foreground mt-1">≈ JD 1,167/month</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950">
+            <CardContent className="pt-6">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">85% Less</p>
+                <p className="text-sm text-blue-700 dark:text-blue-300">Than Enterprise Solutions</p>
+                <p className="text-xs text-muted-foreground mt-1">Educational pricing applied</p>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950">
+            <CardContent className="pt-6">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-purple-600 dark:text-purple-400">20 Months</p>
+                <p className="text-sm text-purple-700 dark:text-purple-300">Break-Even Point</p>
+                <p className="text-xs text-muted-foreground mt-1">Start saving in year 2</p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         <Tabs defaultValue="costs" className="space-y-6">
@@ -80,22 +111,22 @@ const Proposal = () => {
                     <div className="grid grid-cols-3 gap-4 text-center">
                       <div>
                         <p className="text-sm text-muted-foreground">Year 1</p>
-                        <p className="text-2xl font-bold">${getTotalCost("year1").toLocaleString()}</p>
+                        <p className="text-2xl font-bold">JD {getTotalCost("year1").toLocaleString()}</p>
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Year 2</p>
-                        <p className="text-2xl font-bold">${getTotalCost("year2").toLocaleString()}</p>
+                        <p className="text-2xl font-bold">JD {getTotalCost("year2").toLocaleString()}</p>
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Year 3</p>
-                        <p className="text-2xl font-bold">${getTotalCost("year3").toLocaleString()}</p>
+                        <p className="text-2xl font-bold">JD {getTotalCost("year3").toLocaleString()}</p>
                       </div>
                     </div>
                     <div className="pt-4 border-t">
                       <div className="text-center">
                         <p className="text-sm text-muted-foreground">Total Investment</p>
                         <p className="text-3xl font-bold text-primary">
-                          ${(getTotalCost("year1") + getTotalCost("year2") + getTotalCost("year3")).toLocaleString()}
+                          JD {(getTotalCost("year1") + getTotalCost("year2") + getTotalCost("year3")).toLocaleString()}
                         </p>
                       </div>
                     </div>
@@ -151,17 +182,17 @@ const Proposal = () => {
                       {costBreakdown.map((item, index) => (
                         <tr key={index} className="border-b">
                           <td className="p-3 font-medium">{item.category}</td>
-                          <td className="p-3 text-right">${item.year1.toLocaleString()}</td>
-                          <td className="p-3 text-right">${item.year2.toLocaleString()}</td>
-                          <td className="p-3 text-right">${item.year3.toLocaleString()}</td>
+                          <td className="p-3 text-right">JD {item.year1.toLocaleString()}</td>
+                          <td className="p-3 text-right">JD {item.year2.toLocaleString()}</td>
+                          <td className="p-3 text-right">JD {item.year3.toLocaleString()}</td>
                           <td className="p-3 text-sm text-muted-foreground">{item.description}</td>
                         </tr>
                       ))}
                       <tr className="border-b-2 border-primary font-bold">
                         <td className="p-3">Total</td>
-                        <td className="p-3 text-right">${getTotalCost("year1").toLocaleString()}</td>
-                        <td className="p-3 text-right">${getTotalCost("year2").toLocaleString()}</td>
-                        <td className="p-3 text-right">${getTotalCost("year3").toLocaleString()}</td>
+                        <td className="p-3 text-right">JD {getTotalCost("year1").toLocaleString()}</td>
+                        <td className="p-3 text-right">JD {getTotalCost("year2").toLocaleString()}</td>
+                        <td className="p-3 text-right">JD {getTotalCost("year3").toLocaleString()}</td>
                         <td className="p-3"></td>
                       </tr>
                     </tbody>
@@ -214,22 +245,22 @@ const Proposal = () => {
                   <div className="space-y-4">
                     <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
                       <h4 className="font-semibold text-green-600 dark:text-green-400 mb-2">Labor Cost Reduction</h4>
-                      <p className="text-2xl font-bold">$180,000</p>
+                      <p className="text-2xl font-bold">JD 8,500</p>
                       <p className="text-sm text-muted-foreground">Reduced administrative overhead</p>
                     </div>
                     <div className="p-4 bg-gray-50 dark:bg-gray-950 rounded-lg">
                       <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Efficiency Gains</h4>
-                      <p className="text-2xl font-bold">$95,000</p>
+                      <p className="text-2xl font-bold">JD 4,500</p>
                       <p className="text-sm text-muted-foreground">Faster processes and automation</p>
                     </div>
                     <div className="p-4 bg-gray-100 dark:bg-gray-900 rounded-lg">
                       <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Error Reduction</h4>
-                      <p className="text-2xl font-bold">$45,000</p>
+                      <p className="text-2xl font-bold">JD 2,500</p>
                       <p className="text-sm text-muted-foreground">Reduced mistakes and rework</p>
                     </div>
                     <div className="p-4 bg-yellow-50 dark:bg-yellow-950 rounded-lg">
                       <h4 className="font-semibold text-yellow-700 dark:text-yellow-300 mb-2">Resource Optimization</h4>
-                      <p className="text-2xl font-bold">$130,000</p>
+                      <p className="text-2xl font-bold">JD 5,000</p>
                       <p className="text-sm text-muted-foreground">Better utilization of facilities</p>
                     </div>
                   </div>
@@ -266,11 +297,11 @@ const Proposal = () => {
                         <div className="grid grid-cols-2 gap-4 text-sm">
                           <div>
                             <p className="text-muted-foreground">Investment</p>
-                            <p className="font-bold">${year.investment.toLocaleString()}</p>
+                            <p className="font-bold">JD {year.investment.toLocaleString()}</p>
                           </div>
                           <div>
                             <p className="text-muted-foreground">Savings</p>
-                            <p className="font-bold text-green-400">${year.savings.toLocaleString()}</p>
+                            <p className="font-bold text-green-400">JD {year.savings.toLocaleString()}</p>
                           </div>
                         </div>
                       </div>
@@ -287,21 +318,21 @@ const Proposal = () => {
                 <CardContent>
                   <div className="space-y-6">
                     <div className="text-center">
-                      <p className="text-4xl font-bold text-primary mb-2">18 months</p>
+                      <p className="text-4xl font-bold text-primary mb-2">20 months</p>
                       <p className="text-muted-foreground">Break-even point</p>
                     </div>
                     <div className="space-y-4">
                       <div className="flex justify-between">
                         <span>Cumulative Investment (3 years)</span>
-                        <span className="font-bold">$515,000</span>
+                        <span className="font-bold">JD 29,900</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Cumulative Savings (3 years)</span>
-                        <span className="font-bold text-green-400">$950,000</span>
+                        <span className="font-bold text-green-400">JD 43,500</span>
                       </div>
                       <div className="flex justify-between pt-2 border-t">
                         <span>Net Benefit (3 years)</span>
-                        <span className="font-bold text-green-400">$435,000</span>
+                        <span className="font-bold text-green-400">JD 13,600</span>
                       </div>
                     </div>
                     <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg">
