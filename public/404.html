@@ -4,21 +4,10 @@
     <meta charset="utf-8">
     <title>AI Educational Nexus</title>
     <script>
-      // GitHub Pages SPA redirect
-      // This script handles client-side routing for Single Page Applications
-      // deployed on GitHub Pages by redirecting 404 errors to index.html
-      
-      var pathSegmentsToKeep = 1; // Change to 0 if using custom domain
-      
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 
-        '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+      // Simple GitHub Pages SPA redirect
+      var path = window.location.pathname.replace('/learn-ai-edu-nexus', '');
+      var redirect = '/learn-ai-edu-nexus/?p=' + path;
+      window.location.replace(redirect);
     </script>
   </head>
   <body>

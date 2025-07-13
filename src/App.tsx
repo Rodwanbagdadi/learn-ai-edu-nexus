@@ -26,8 +26,8 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-  // Get the base name for GitHub Pages
-  const basename = import.meta.env.PROD ? '/learn-ai-edu-nexus' : '';
+  // Get the base name for GitHub Pages - use window.location to be more reliable
+  const basename = window.location.hostname === 'localhost' ? '' : '/learn-ai-edu-nexus';
   
   return (
     <QueryClientProvider client={queryClient}>
