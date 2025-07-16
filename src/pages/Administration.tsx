@@ -100,9 +100,9 @@ const Administration = () => {
       {/* Subtle overlay for depth */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50/20 via-transparent to-gray-100/20"></div>
       
-      {/* Very subtle background elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gray-400/3 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gray-500/3 rounded-full blur-3xl animate-float" style={{animationDelay: '-3s'}}></div>
+      {/* Very subtle background elements - Simplified */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gray-400/2 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gray-500/2 rounded-full blur-3xl"></div>
       
       <div className="relative max-w-7xl mx-auto p-6">
         {/* Header */}

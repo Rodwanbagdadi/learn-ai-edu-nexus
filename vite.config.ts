@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -13,12 +12,11 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+  ],
   // Optimization for faster development
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', '@tanstack/react-query'],
+    exclude: ['lucide-react'],
   },
   resolve: {
     alias: {
@@ -31,7 +29,11 @@ export default defineConfig(({ mode }) => ({
     assetsDir: 'assets',
     // Ensure compatibility with GitHub Pages
     target: 'es2015',
+    // Enable compression and minification
+    minify: 'esbuild', // Use esbuild instead of terser for faster builds
+    sourcemap: false, // Disable sourcemaps in production for smaller bundle size
     rollupOptions: {
+      treeshake: true,
       output: {
         manualChunks: {
           // Split vendor libraries into separate chunks
@@ -43,8 +45,6 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    // Enable compression and minification
-    minify: 'esbuild', // Use esbuild instead of terser for faster builds
   },
   // Define environment variables
   define: {

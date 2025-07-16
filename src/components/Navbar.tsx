@@ -27,7 +27,7 @@ const Navbar = () => {
           <Link
             key={item.name}
             to={item.href}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
+            className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors duration-200 group ${
               active
                 ? "bg-gray-800 text-white shadow-lg"
                 : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
@@ -41,7 +41,7 @@ const Navbar = () => {
             </div>
             <span className="font-semibold">{item.name}</span>
             {active && (
-              <div className="ml-auto w-2 h-2 bg-white rounded-full animate-pulse"></div>
+              <div className="ml-auto w-2 h-2 bg-white rounded-full"></div>
             )}
           </Link>
         );
@@ -55,8 +55,7 @@ const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative p-2 bg-gray-800 rounded-xl shadow-lg group-hover:scale-105 transition-transform">
-                <div className="absolute inset-0 bg-gray-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm"></div>
+              <div className="relative p-2 bg-gray-800 rounded-xl shadow-lg transition-colors">
                 <GraduationCap className="relative h-8 w-8 text-white" />
               </div>
               <div>

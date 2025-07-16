@@ -48,17 +48,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 pattern-dots opacity-50"></div>
+      <div className="absolute inset-0 pattern-dots opacity-30"></div>
       
-      {/* Floating Background Elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full animate-float blur-xl"></div>
-      <div className="absolute top-40 right-20 w-96 h-96 bg-rose-300/10 rounded-full animate-float blur-xl" style={{animationDelay: '-2s'}}></div>
-      <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-green-300/10 rounded-full animate-float blur-xl" style={{animationDelay: '-4s'}}></div>
+      {/* Simplified Floating Background Elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/5 rounded-full blur-xl"></div>
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-rose-300/5 rounded-full blur-xl"></div>
       
       {/* Hero Section */}
       <section className="relative py-24 px-6 text-center">
         <div className="max-w-7xl mx-auto animate-slide-up">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-8 animate-glow">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-8">
             <svg className="w-4 h-4 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
@@ -77,7 +76,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button size="lg" className="px-8 py-4 text-lg font-semibold bg-gray-800 hover:bg-gray-700 text-white hover:scale-105 transition-transform shadow-lg" asChild>
+            <Button size="lg" className="px-8 py-4 text-lg font-semibold bg-gray-800 hover:bg-gray-700 text-white transition-colors shadow-lg" asChild>
               <Link to="/teaching" className="flex items-center gap-3">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -85,7 +84,7 @@ const Index = () => {
                 Start Learning Journey
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg font-semibold border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 hover:scale-105 transition-transform" asChild>
+            <Button size="lg" variant="outline" className="px-8 py-4 text-lg font-semibold border-2 border-gray-300 hover:bg-gray-50 hover:border-gray-400 transition-colors" asChild>
               <Link to="/proposal" className="flex items-center gap-3">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0v12h8V4H6z" clipRule="evenodd" />
