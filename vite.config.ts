@@ -29,8 +29,6 @@ export default defineConfig(({ mode }) => ({
     assetsDir: 'assets',
     // Ensure compatibility with GitHub Pages
     target: 'es2015',
-    // Enable compression and minification
-    minify: 'esbuild', // Use esbuild instead of terser for faster builds
     sourcemap: false, // Disable sourcemaps in production for smaller bundle size
     rollupOptions: {
       treeshake: true,
@@ -45,6 +43,8 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
+    // Enable compression and minification
+    minify: 'esbuild', // Use esbuild instead of terser for faster builds
   },
   // Define environment variables
   define: {
