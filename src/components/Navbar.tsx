@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, GraduationCap, BookOpen, BarChart3, Settings, FileText, Home } from "lucide-react";
+import { motion } from "framer-motion";
+import { HoverAnimatedElement } from "@/components/AnimatedComponents";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,30 +22,54 @@ const Navbar = () => {
 
   const NavItems = () => (
     <>
-      {navigation.map((item) => {
+      {navigation.map((item, index) => {
         const Icon = item.icon;
         const active = isActive(item.href);
         return (
-          <Link
+          <motion.div
             key={item.name}
-            to={item.href}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors duration-200 group ${
-              active
-                ? "bg-gray-800 text-white shadow-lg"
-                : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
-            }`}
-            onClick={() => setIsOpen(false)}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
           >
-            <div className={`p-1 rounded-lg transition-colors ${
-              active ? "bg-white/20" : "group-hover:bg-gray-200"
-            }`}>
-              <Icon className={`h-4 w-4 ${active ? "text-white" : "group-hover:text-gray-800"}`} />
-            </div>
-            <span className="font-semibold">{item.name}</span>
-            {active && (
-              <div className="ml-auto w-2 h-2 bg-white rounded-full"></div>
-            )}
-          </Link>
+            <HoverAnimatedElement scale={1.02} y={-2}>
+              <Link
+                to={item.href}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 group relative overflow-hidden ${
+                  active
+                    ? "bg-gradient-to-r from-gray-800 to-gray-900 text-white shadow-lg"
+                    : "text-gray-600 hover:text-gray-800 hover:bg-gray-100"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {active && (
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"
+                    layoutId="activeTab"
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+                <motion.div 
+                  className={`p-1 rounded-lg transition-colors relative z-10 ${
+                    active ? "bg-white/20" : "group-hover:bg-gray-200"
+                  }`}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <Icon className={`h-4 w-4 ${active ? "text-white" : "group-hover:text-gray-800"}`} />
+                </motion.div>
+                <span className="font-semibold relative z-10">{item.name}</span>
+                {active && (
+                  <motion.div 
+                    className="ml-auto w-2 h-2 bg-white rounded-full relative z-10"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2 }}
+                  />
+                )}
+              </Link>
+            </HoverAnimatedElement>
+          </motion.div>
         );
       })}
     </>
