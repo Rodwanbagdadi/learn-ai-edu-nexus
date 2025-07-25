@@ -10,6 +10,11 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  // Add preview server configuration for SPA routing
+  preview: {
+    port: 4173,
+    strictPort: true,
+  },
   plugins: [
     react(),
   ],

@@ -48,11 +48,16 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-  // Get the base name for GitHub Pages - more reliable detection
-  const basename = import.meta.env.MODE === 'production' && 
-                   (window.location.hostname === 'rodwanbagdadi.github.io' || 
-                    window.location.hostname.includes('github.io')) 
-                   ? '/learn-ai-edu-nexus' : '';
+  // Only use basename in production for GitHub Pages
+  const basename = import.meta.env.MODE === 'production' ? '/learn-ai-edu-nexus' : '';
+  
+  // Debug logging (remove in production)
+  if (import.meta.env.DEV) {
+    console.log('Environment:', import.meta.env.MODE);
+    console.log('Base URL:', import.meta.env.BASE_URL);
+    console.log('Basename:', basename);
+    console.log('Current pathname:', window.location.pathname);
+  }
   
   return (
     <ErrorBoundary>
