@@ -31,24 +31,36 @@ export default function TypedText({
 
   useEffect(() => {
     if (elementRef.current) {
-      const options = {
-        strings,
-        typeSpeed,
-        backSpeed,
-        backDelay,
-        startDelay,
-        loop,
-        showCursor,
-        cursorChar,
-        onComplete: onComplete || undefined,
-      };
+      try {
+        const options = {
+          strings,
+          typeSpeed,
+          backSpeed,
+          backDelay,
+          startDelay,
+          loop,
+          showCursor,
+          cursorChar,
+          onComplete: onComplete || undefined,
+        };
 
-      typedRef.current = new Typed(elementRef.current, options);
+        typedRef.current = new Typed(elementRef.current, options);
+      } catch (error) {
+        console.error('TypedText initialization error:', error);
+        // Fallback to show first string if Typed.js fails
+        if (elementRef.current && strings.length > 0) {
+          elementRef.current.textContent = strings[0];
+        }
+      }
     }
 
     return () => {
       if (typedRef.current) {
-        typedRef.current.destroy();
+        try {
+          typedRef.current.destroy();
+        } catch (error) {
+          console.error('TypedText cleanup error:', error);
+        }
       }
     };
   }, [strings, typeSpeed, backSpeed, backDelay, startDelay, loop, showCursor, cursorChar, onComplete]);
