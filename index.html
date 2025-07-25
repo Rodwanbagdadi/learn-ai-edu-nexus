@@ -22,14 +22,27 @@
 
     <!-- GitHub Pages SPA routing script -->
     <script>
-      // Simple redirect handler for GitHub Pages
-      if (window.location.search) {
-        const params = new URLSearchParams(window.location.search);
-        const redirect = params.get('p');
-        if (redirect) {
-          window.history.replaceState(null, null, window.location.pathname + redirect);
+      // Enhanced redirect handler for GitHub Pages
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
         }
-      }
+        
+        // Handle URL parameters for SPA routing
+        if (window.location.search) {
+          const params = new URLSearchParams(window.location.search);
+          const redirect = params.get('p');
+          if (redirect) {
+            const query = params.get('q');
+            const hash = window.location.hash;
+            const newUrl = window.location.pathname + redirect + 
+                          (query ? '?' + query : '') + hash;
+            window.history.replaceState(null, null, newUrl);
+          }
+        }
+      })();
     </script>
   </head>
   <body>

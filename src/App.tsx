@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -47,33 +48,38 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-  // Get the base name for GitHub Pages - use window.location to be more reliable
-  const basename = window.location.hostname === 'localhost' ? '' : '/learn-ai-edu-nexus';
+  // Get the base name for GitHub Pages - more reliable detection
+  const basename = import.meta.env.MODE === 'production' && 
+                   (window.location.hostname === 'rodwanbagdadi.github.io' || 
+                    window.location.hostname.includes('github.io')) 
+                   ? '/learn-ai-edu-nexus' : '';
   
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter basename={basename}>
-          <ScrollToTop />
-          <div className="min-h-screen bg-background">
-            <Navbar />
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/teaching" element={<Teaching />} />
-                <Route path="/governance" element={<Governance />} />
-                <Route path="/administration" element={<Administration />} />
-                <Route path="/proposal" element={<Proposal />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </div>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter basename={basename}>
+            <ScrollToTop />
+            <div className="min-h-screen bg-background">
+              <Navbar />
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/teaching" element={<Teaching />} />
+                  <Route path="/governance" element={<Governance />} />
+                  <Route path="/administration" element={<Administration />} />
+                  <Route path="/proposal" element={<Proposal />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </div>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 

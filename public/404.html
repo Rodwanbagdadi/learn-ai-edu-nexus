@@ -4,10 +4,22 @@
     <meta charset="utf-8">
     <title>AI Educational Nexus</title>
     <script>
-      // Simple GitHub Pages SPA redirect
-      var path = window.location.pathname.replace('/learn-ai-edu-nexus', '');
-      var redirect = '/learn-ai-edu-nexus/?p=' + path;
-      window.location.replace(redirect);
+      // GitHub Pages SPA redirect for better routing
+      var path = window.location.pathname.slice(1);
+      if (path.startsWith('learn-ai-edu-nexus/')) {
+        path = path.slice('learn-ai-edu-nexus/'.length);
+      }
+      if (path && path !== 'learn-ai-edu-nexus') {
+        window.location.replace(
+          window.location.protocol + '//' + window.location.hostname + 
+          (window.location.port ? ':' + window.location.port : '') +
+          '/learn-ai-edu-nexus/?p=/' + path +
+          (window.location.search ? '&q=' + window.location.search.slice(1) : '') +
+          window.location.hash
+        );
+      } else {
+        window.location.replace('/learn-ai-edu-nexus/');
+      }
     </script>
   </head>
   <body>
