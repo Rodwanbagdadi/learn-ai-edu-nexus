@@ -666,15 +666,7 @@ const Index = () => {
           </motion.div>
 
           {/* Contact Info */}
-          <motion.div 
-            className="text-center text-gray-300 text-sm"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            viewport={{ once: true }}
-          >
-            <p>Questions? Contact our education specialists at <span className="text-blue-400 font-semibold">hello@ai-edu.com</span> or call <span className="text-blue-400 font-semibold">1-800-AI-LEARN</span></p>
-          </motion.div>
+
         </div>
       </section>
     </div>
